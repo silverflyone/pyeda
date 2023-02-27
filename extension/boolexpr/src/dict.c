@@ -19,7 +19,7 @@
 
 
 /* Define static size_t _primes[] */
-#include "primes-inl.c"
+#include "primes-inl.h"
 
 
 static size_t

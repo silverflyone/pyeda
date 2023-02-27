@@ -2,8 +2,9 @@
 ** Filename: util.h
 */
 
+#include "boolexpr.h"
 
-void _bx_free_exprs(int length, struct BoolExpr **exprs);
+void _bx_free_exprs(size_t length, struct BoolExpr **exprs);
 
 struct BoolExpr * _bx_op_transform(struct BoolExpr *op,
                                    struct BoolExpr * (*fn)(struct BoolExpr *));

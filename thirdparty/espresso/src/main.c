@@ -1,10 +1,15 @@
 // Filename: main.c
 
-#include <stdio.h>
-#include <string.h>
+#ifdef _WIN32
+#define _CRT_SECURE_NO_WARNINGS
+#include <io.h>
+#else
 #include <unistd.h>
+#endif
 
 #include "espresso.h"
+#include <stdio.h>
+#include <string.h>
 #include "main.h"
 
 static FILE *last_fp;
@@ -13,7 +18,7 @@ static int input_type = FD_type;
 void
 subcommands()
 {
-    int i, col;
+    size_t i, col;
     printf("                ");
     col = 16;
     for(i = 0; option_table[i].name != 0; i++) {

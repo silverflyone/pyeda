@@ -1,8 +1,8 @@
 // Filename: exact.c
 
+#include "espresso.h"
 #include <string.h>
 
-#include "espresso.h"
 
 static void dump_irredundant(set_family_t *E, set_family_t *Rt, set_family_t *Rp, sm_matrix *table);
 static set_family_t *do_minimize(set_family_t *F, set_family_t *D, set_family_t *R, int exact_cover, int weighted);

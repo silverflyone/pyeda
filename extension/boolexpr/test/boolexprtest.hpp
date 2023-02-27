@@ -3,7 +3,7 @@
 */
 
 
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 #include "boolexpr.h"
 

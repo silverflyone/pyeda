@@ -647,3 +647,4 @@ void picosat_write_rup_trace (PicoSAT *, FILE * trace_file);
 int picosat_usedlit (PicoSAT *, int lit);
 /*------------------------------------------------------------------------*/
 #endif
+

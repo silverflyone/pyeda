@@ -2,6 +2,8 @@
 ** Filename: primes-inl.c
 */
 
+#include <stddef.h>
+
 static size_t _primes[] = {
     /* (2^0,  2^1)  */ 2,
     /* (2^1,  2^2)  */ 3,

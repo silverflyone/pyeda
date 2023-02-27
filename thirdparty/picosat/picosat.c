@@ -20,6 +20,10 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
 ****************************************************************************/
 
+#ifdef _WIN32
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -826,7 +830,7 @@ mulflt (Flt a, Flt b)
   assert (accu < FLTCARRY);
   assert (accu & FLTMSB);
 
-  ma = accu;
+  ma = (unsigned) accu;
   ma &= ~FLTMSB;
 
   return packflt (ma, ea);
@@ -8095,7 +8099,9 @@ picosat_stats (PS * ps)
 	    ps->prefix, picosat_max_bytes_allocated (ps) / (double) (1 << 20));
 }
 
-#ifndef NGETRUSAGE
+#if defined(_WIN32)
+#include "win32getrusage.h"
+#elif not defined(NGETRUSAGE)
 #include <sys/time.h>
 #include <sys/resource.h>
 #include <sys/unistd.h>
@@ -8105,8 +8111,8 @@ double
 picosat_time_stamp (void)
 {
   double res = -1;
-#ifndef NGETRUSAGE
-  struct rusage u;
+#if defined(_WIN32) or not defined(NGETRUSAGE)
+  static struct rusage u;
   res = 0;
   if (!getrusage (RUSAGE_SELF, &u))
     {

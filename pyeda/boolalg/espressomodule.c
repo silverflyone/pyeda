@@ -37,10 +37,10 @@ _pycov2esprcov(
     set_family_t *F, set_family_t *D, set_family_t *R,
     int ninputs, int noutputs, PyObject *cover, int intype)
 {
-    int i, j;
-    int index;
-    int val, maxval;
-    int savef, saved, saver;
+    Py_ssize_t i, j;
+    Py_ssize_t index;
+    Py_ssize_t val, maxval;
+    Py_ssize_t savef, saved, saver;
 
     set *cf, *cd, *cr;
 
@@ -97,7 +97,7 @@ _pycov2esprcov(
             }
 
             for (j = 0; j < CUBE.part_size[i]; j++, index++) {
-                if (val & (1 << j))
+                if (val & ((Py_ssize_t)(1) << j))
                     set_insert(cf, index);
             }
 

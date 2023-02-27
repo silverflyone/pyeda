@@ -4,6 +4,7 @@
 ** Private functions shared between C files
 */
 
+#include "boolexpr.h"
 
 /* array.c */
 struct BX_Array * _bx_array_from(size_t length, struct BoolExpr **exprs);

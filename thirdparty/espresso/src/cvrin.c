@@ -3,10 +3,11 @@
 // purpose: cube and cover input routines
 //
 
+#include "espresso.h"
 #include <ctype.h>
 #include <string.h>
 
-#include "espresso.h"
+
 
 static bool line_length_error;
 static int lineno;

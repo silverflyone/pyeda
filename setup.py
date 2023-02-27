@@ -94,7 +94,7 @@ PACKAGES = PYEDA_PKGS + TEST_PKGS
 ESPRESSO = dict(
     define_macros=[],
     include_dirs=[
-        pjoin("thirdparty", "espresso", "src"),
+        pjoin("thirdparty", "espresso", "include"),
     ],
     sources=[
         pjoin("thirdparty", "espresso", "src", "cofactor.c"),
@@ -143,26 +143,26 @@ EXPRNODE = dict(
         ("NDEBUG", None),
     ],
     include_dirs=[
-        pjoin("extension", "boolexpr"),
+        pjoin("extension", "boolexpr", "include"),
     ],
     sources=[
-        pjoin("extension", "boolexpr", "argset.c"),
-        pjoin("extension", "boolexpr", "array.c"),
-        pjoin("extension", "boolexpr", "binary.c"),
-        pjoin("extension", "boolexpr", "boolexpr.c"),
-        pjoin("extension", "boolexpr", "bubble.c"),
-        pjoin("extension", "boolexpr", "compose.c"),
-        pjoin("extension", "boolexpr", "dict.c"),
-        pjoin("extension", "boolexpr", "flatten.c"),
-        pjoin("extension", "boolexpr", "nnf.c"),
-        pjoin("extension", "boolexpr", "product.c"),
-        pjoin("extension", "boolexpr", "set.c"),
-        pjoin("extension", "boolexpr", "simple.c"),
-        pjoin("extension", "boolexpr", "util.c"),
-        pjoin("extension", "boolexpr", "vector.c"),
+        pjoin("extension", "boolexpr", "src", "argset.c"),
+        pjoin("extension", "boolexpr", "src", "array.c"),
+        pjoin("extension", "boolexpr", "src", "binary.c"),
+        pjoin("extension", "boolexpr", "src", "boolexpr.c"),
+        pjoin("extension", "boolexpr", "src", "bubble.c"),
+        pjoin("extension", "boolexpr", "src", "compose.c"),
+        pjoin("extension", "boolexpr", "src", "dict.c"),
+        pjoin("extension", "boolexpr", "src", "flatten.c"),
+        pjoin("extension", "boolexpr", "src", "nnf.c"),
+        pjoin("extension", "boolexpr", "src", "product.c"),
+        pjoin("extension", "boolexpr", "src", "set.c"),
+        pjoin("extension", "boolexpr", "src", "simple.c"),
+        pjoin("extension", "boolexpr", "src", "util.c"),
+        pjoin("extension", "boolexpr", "src", "vector.c"),
         pjoin("pyeda", "boolalg", "exprnodemodule.c"),
     ],
-    extra_compile_args=["--std=c99"],
+#    extra_compile_args=["--std=c99"],
 )
 
 # PicoSAT C extension
@@ -175,10 +175,12 @@ PICOSAT = dict(
     ],
     include_dirs=[
         pjoin("thirdparty", "picosat"),
+        pjoin("win32getrusage", "include"),
     ],
     sources=[
         pjoin("thirdparty", "picosat", "picosat.c"),
         pjoin("pyeda", "boolalg", "picosatmodule.c"),
+        pjoin("win32getrusage", "src", "win32getrusage.c"),
     ],
 )
 
